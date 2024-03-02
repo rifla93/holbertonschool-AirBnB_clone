@@ -13,19 +13,24 @@ class FileStorage:
 
     def new(self, obj):
         key_val = "{}.{}".format(obj.__class__.__name__, obj.id)
-        FileStorage.__objects[key_val] = obj
+        self.__objects[key_val] = obj
 
     def save(self):
         """Serializes __objects to the JSON file"""
-        with open(FileStorage.__file_path, "w") as f:
-            json.dump({k: v.to_dict() for k, v in FileStorage.__objects.items()}, f)
+        serialized_objects = {}
+        for key, obj in self.__objects.items():
+            serialized_objects[key] = obj.to_dict()
+        with open(self.__file_path, "w") as file:
+            json.dump(serialized_objects, file)
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
         try:
-            with open(FileStorage.__file_path, "r") as f:
-                FileStorage.__objects = {
-                    k: BaseModel(**v) for k, v in json.load(f).items()
-                }
+            with open(self.__file_path, "r") as file:
+                serialized_objects = json.load(file)
+                for key, value in serialized_objects.items():
+                    class_name, obj_id = key.split(".")
+                    obj = eval(class_name)(**value)
+                    self.__objects[key] = obj
         except FileNotFoundError:
             pass
