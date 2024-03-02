@@ -3,6 +3,7 @@ import json
 import os
 """ file storage """
 
+
 class FileStorage:
     """ file storage """
     __file_path = "file.json"
