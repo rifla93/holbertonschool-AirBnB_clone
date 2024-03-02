@@ -25,11 +25,11 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
-        try:
+        if os.path.exists(FileStorage.__file_path):
             with open(self.__file_path, "r") as file:
                 serialized_objects = json.load(file)
                 for key, value in serialized_objects.items():
                     class_name = eval(value["__class__"])(**value)
                     self.__objects[key] = class_name
-        except FileNotFoundError:
+        else:
             pass
