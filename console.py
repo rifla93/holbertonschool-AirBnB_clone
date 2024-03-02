@@ -8,12 +8,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """Quit command to exit the program."""
-        return True
+        exit()
 
     def do_EOF(self, arg):
         """EOF command to exit the program."""
-        print("\nExiting the program. Goodbye!")
-        return True
+        print()
+        exit()
 
     def emptyline(self):
         """Empty line + ENTER shouldn't execute anything."""
