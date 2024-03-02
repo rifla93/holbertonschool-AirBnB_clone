@@ -2,6 +2,7 @@ import cmd
 from models import storage
 from models.base_model import BaseModel
 
+
 class HBNBCommand(cmd.Cmd):
     """Command line interpreter for HBNB project."""
 
@@ -20,6 +21,7 @@ class HBNBCommand(cmd.Cmd):
         """Empty line + ENTER shouldn't execute anything."""
         pass
 
+
 class Console:
     def __init__(self):
         self.commands = {
@@ -27,11 +29,9 @@ class Console:
             "show": self.show,
             "destroy": self.destroy,
             "all": self.all,
-            "update": self.update
+            "update": self.update,
         }
-        self.models = {
-            "BaseModel": BaseModel
-        }
+        self.models = {"BaseModel": BaseModel}
 
     def create(self, args):
         if len(args) < 1:
@@ -89,7 +89,11 @@ class Console:
                 return
             models = self.models[model_name].all()
         else:
-            models = [model for model_class in self.models.values() for model in model_class.all()]
+            models = [
+                model
+                for model_class in self.models.values()
+                for model in model_class.all()
+            ]
         print([str(model) for model in models])
 
     def update(self, args):
