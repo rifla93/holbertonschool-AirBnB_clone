@@ -13,7 +13,6 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         from models import storage
 
-        self.id = str(uuid4())
         if kwargs:
             for key, value in kwargs.items():
                 if key != "__class__":
@@ -24,7 +23,7 @@ class BaseModel:
                     else:
                         setattr(self, key, value)
         else:
-            self.id = str(uuid4)
+            self.id = str(uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
             storage.new(self)
