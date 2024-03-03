@@ -12,6 +12,7 @@ from models.place import Place
 from models.review import Review
 
 
+
 class FileStorage:
     """
     Class for file storage
@@ -27,6 +28,7 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
+<<<<<<< HEAD
         """
         function to set obj in objects
         """
