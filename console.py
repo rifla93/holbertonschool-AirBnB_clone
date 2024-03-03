@@ -20,7 +20,9 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
 
-    valid_classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
+    valid_classes = [
+        'BaseModel', 'User', 'State', 'City', 'Amenity', 'Place', 'Review'
+                    ]
 
     def do_create(self, line):
         """Create a new instance, save it, and print its ID."""
