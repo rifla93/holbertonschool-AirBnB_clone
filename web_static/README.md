@@ -1,1 +1,0 @@
-# Airbnb static web page

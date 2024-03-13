@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Form</title>
+    <style>
+        body {
+            background-image: url('./muted\ tones\ of\ dusty\ pink\ and\ dark\ purple.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            
+        }
+
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+            width: 300px;
+            
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .fancy-btn {
+  background-color: #2d8659;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.fancy-btn::before {
+  content: "";
+  background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 100%);
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: left 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.fancy-btn:hover::before {
+  left: 0;
+}
+
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.signup-link {
+    color: #fff;
+    text-decoration: none;
+}
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <button class="fancy-btn">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+    </div>
+</body>
+
+</html>
